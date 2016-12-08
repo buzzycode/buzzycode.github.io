@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/smellycode/smellycode.github.io/issues"
   },
-  "homepage": "https://github.com/smellycode/smellycode.github.io#readme"
+  "homepage": "https://github.com/smellycode/smellycode.github.io#readme",
+  "devDependencies": {
+    "angular": "^1.6.0",
+    "browserify": "^13.1.1",
+    "gulp": "^3.9.1",
+    "gulp-gh-pages": "^0.5.4"
+  }
 }
