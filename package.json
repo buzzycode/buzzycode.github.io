@@ -19,7 +19,15 @@
   "devDependencies": {
     "angular": "^1.6.0",
     "browserify": "^13.1.1",
+    "del": "^2.2.2",
     "gulp": "^3.9.1",
-    "gulp-gh-pages": "^0.5.4"
+    "gulp-bytediff": "^1.0.0",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-size": "^2.1.0",
+    "gulp-sourcemaps": "^1.9.1",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
   }
 }
