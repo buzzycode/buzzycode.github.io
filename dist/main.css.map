@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.scss"],"names":[],"mappings":"AACA;EACE,iBAFe,EAGhB","file":"main.css","sourcesContent":["$body-color: teal;\nbody{\n  background: $body-color;\n}\n\n"]}
