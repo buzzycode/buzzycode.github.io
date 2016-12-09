@@ -1,1 +1,1 @@
-{"version":3,"sources":["main.scss"],"names":[],"mappings":"AACA;EACE,iBAFe,EAGhB","file":"main.css","sourcesContent":["$body-color: teal;\nbody{\n  background: $body-color;\n}\n\n"]}
+{"version":3,"sources":["main.scss","base/_base.scss"],"names":[],"mappings":"AAEA,KACE,iBCHoB,CDIrB","file":"main.css","sourcesContent":["@import \"base/base\";\n\nbody{\n  background: $color_primary;\n}\n\n","$color_primary: tomato;"]}

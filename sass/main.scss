@@ -1,5 +1,6 @@
-$body-color: teal;
+@import "base/base";
+
 body{
-  background: $body-color;
+  background: $color_primary;
 }
 

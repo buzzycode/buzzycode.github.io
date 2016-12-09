@@ -12,6 +12,7 @@ var size = require('gulp-size');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var runSequence = require('run-sequence');
+var minifyCSS = require('gulp-cssnano');
 
 
 
@@ -23,6 +24,9 @@ gulp.task('css', function() {
             .pipe(bytediff.start())
             .pipe(size({
                 showFiles: true
+            }))
+            .pipe(minifyCSS({
+              zindex: false
             }))
             .pipe(bytediff.stop())
         .pipe(sourcemaps.write('.'))
