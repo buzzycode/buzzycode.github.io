@@ -1,1 +1,2 @@
-# buzzycode.github.io
+# SmellyCode
+Code which smells.
