@@ -1,1 +1,1 @@
-{"version":3,"sources":["main.scss","base/_base.scss"],"names":[],"mappings":"AAEA,KACE,iBCHoB,CDIrB","file":"main.css","sourcesContent":["@import \"base/base\";\n\nbody{\n  background: $color_primary;\n}\n\n","$color_primary: tomato;"]}
+{"version":3,"sources":["main.scss","base/_base.scss"],"names":[],"mappings":"AAEA,KACE,eCHkB,CDInB","file":"main.css","sourcesContent":["@import \"base/base\";\n\nbody{\n  background: $color_primary;\n}\n\n","$color_primary: teal;"]}
