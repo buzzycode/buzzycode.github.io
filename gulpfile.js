@@ -65,4 +65,10 @@ gulp.task('cleanup', function(){
   del('dist');
 });
 
-gulp.task('default', ['build']);
+gulp.task('watch', ['build'], function(){
+  //TODO: User task bundlejs and css.
+  gulp.watch('scripts/**/*.js', ['build']);
+  gulp.watch('sass/**/*.scss', ['build']);
+});
+
+gulp.task('default', ['watch']);
