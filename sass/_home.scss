@@ -1,5 +1,19 @@
 .home {
   &__header {
+    background: white;
+    box-shadow: 0 0 0.7em rgba(0,0,0,0.5);
+    &__logo{
+      padding: 0.5em;
+      & a{
+        font-size: 2em;
+        text-decoration: none;
+        color: map-get($colors, text);
+        &:hover{
+          cursor: pointer;
+          color: map-get($colors, hover);
+        }
+      }
+    }
     &__rainbow{
         content: '';
         display: flex;
@@ -10,12 +24,25 @@
       & div{
         flex-grow: 1;
       }
-      $colors: #2A363B, #E84A5F, #FF847B, #FECEA8, #FF847B, #E84A5F, #2A363B;
-      @for $i from 1 through length($colors) {
+      $bar-colors: #2A363B, #E84A5F, #FF847B, #FECEA8, #FF847B, #E84A5F, #2A363B;
+      @for $i from 1 through length($bar-colors) {
         & :nth-child(#{$i}){
-          background: nth($colors, $i);
+          background: nth($bar-colors, $i);
         }
       }
+    }
+  }
+  &__sidebar{
+    &__twitter{
+       width: 300px;
+       height: 512px;
+       overflow: auto;
+       float: right;
+       box-shadow: 0 0 7px rgba(0,0,0,0.5);
+       &::after{
+         clear: both;
+         content: '';
+       }
     }
   }
 }

@@ -3,5 +3,7 @@
 @import 'home';
 
 body{
-  background: $background-color; 
+  background: map-get($colors, background);
+  font-family: $font-family;
+  color: map-get($colors, text);
 }

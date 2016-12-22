@@ -38,7 +38,7 @@ gulp.task('css', function() {
 
 gulp.task('bundlejs', function(){
   return browserify({
-    entries: 'scripts/index.js',
+    entries: 'static/index.js',
     debug: true
   })
   .bundle()
@@ -67,7 +67,7 @@ gulp.task('cleanup', function(){
 
 gulp.task('watch', ['build'], function(){
   //TODO: User task bundlejs and css.
-  gulp.watch('scripts/**/*.js', ['build']);
+  gulp.watch('static/**/*.js', ['build']);
   gulp.watch('sass/**/*.scss', ['build']);
 });
 

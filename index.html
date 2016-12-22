@@ -18,23 +18,34 @@
   <title>Smelly Code | Code which smells</title>
   <meta name="description" description="Smelly Code is actaully a blog created by Hitesh to share his learnings.">
   <meta name="author" description="Hitesh Kumar">
+  <link rel="stylesheet" href="fonts/bree-serif.css">
   <link rel="stylesheet" type="text/css" href="dist/main.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 
-<body ng-app="app">
+<body ng-app="smellycode">
   <!-- Main Header-->
   <header class="home__header">
     <div class="home__header__rainbow">
       <!-- 7 divs for rain bar-->
       <div ng-repeat="i in [1, 2, 3, 4, 5, 6, 7]"></div>
     </div>
+    <!-- navigation bar with logo-->
+    <nav class="home__header__nav">
+      <!-- Logo -->
+      <div class="home__header__logo">
+        <a ui-href="home">Smelly Code</a>
+      </div>
+    </nav>
   </header>
   <!-- Main View -->
-  <section></section>
+  <section>
+    <ui-view></ui-view>
+  </section>
   <!-- Bottom Footer-->
   <footer></footer>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>  
   <script src="dist/app.js"></script>
 </body>
 

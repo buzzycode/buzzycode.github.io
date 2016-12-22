@@ -18,6 +18,7 @@
   "homepage": "https://github.com/smellycode/smellycode.github.io#readme",
   "devDependencies": {
     "angular": "^1.6.0",
+    "angular-ui-router": "^0.3.2",
     "browserify": "^13.1.1",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
@@ -33,5 +34,8 @@
     "run-sequence": "^1.2.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "angular-ui-router": "^0.3.2"
   }
 }
