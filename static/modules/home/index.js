@@ -2,7 +2,8 @@
 'use strict';
 var angular = require('angular');
 var app = angular.module('smellycode.home', [
-  require('angular-ui-router')
+  require('angular-ui-router'),
+  require('../components/scbanner').name
 ]);
 app.config(['$stateProvider', function($stateProvider){
   $stateProvider.state('home', {

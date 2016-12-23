@@ -5,7 +5,7 @@ var app = angular.module('smellycode', [
   require('angular-ui-router'),
   require('./modules/home').name
 ]);
-app.config(['$urlRouterProvider', function($urlRouterProvider){
+app.config(['$urlRouterProvider', function ($urlRouterProvider) {
   $urlRouterProvider.otherwise('/home');
 }]);
 module.exports = app;
