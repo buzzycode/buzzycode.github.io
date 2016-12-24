@@ -36,7 +36,6 @@ app.controller('ScbannerController', ['$interval', 'ScbannerUtil', function ($in
   var yMax;
   var stars = [];
   var intervalId;
-  stars.length = 100;
 
   function addStars() {
     for (var i = 0; i < stars.length; i++) {
@@ -72,6 +71,9 @@ app.controller('ScbannerController', ['$interval', 'ScbannerUtil', function ($in
     var element = document.getElementById('homeBanner');
     xMax = element.offsetWidth;
     yMax = element.offsetHeight;
+    // one percent stars of the max width;
+    stars.length = .05 * xMax << 0;
+    console.log(stars.length);
     stage = new Konva.Stage({
       container: 'homeBanner',
       width: xMax,
@@ -85,7 +87,7 @@ app.controller('ScbannerController', ['$interval', 'ScbannerUtil', function ($in
     return $interval(function () {
       var index = ScbannerUtil.getRandomNumber(stars.length);
       var star = stars[index];
-      var scale= Math.random();
+      var scale = Math.random();
       star.moveToTop();
       var tween = new Konva.Tween({
         node: star,
@@ -94,8 +96,8 @@ app.controller('ScbannerController', ['$interval', 'ScbannerUtil', function ($in
         rotation: ScbannerUtil.getRandomNumber(50, 360),
         fill: Konva.Util.getRandomColor(),
         scale: {
-          x:scale,
-          y:scale
+          x: scale,
+          y: scale
         },
         x: ScbannerUtil.getRandomNumber(10, xMax),
         y: ScbannerUtil.getRandomNumber(10, yMax)
@@ -103,9 +105,9 @@ app.controller('ScbannerController', ['$interval', 'ScbannerUtil', function ($in
       tween.play();
     }, 1000);
   }
-  
-  function clearInterval(){
-    if(intervalId){
+
+  function clearInterval() {
+    if (intervalId) {
       $interval.cancel(intervalId);
     }
   }
@@ -116,7 +118,7 @@ app.controller('ScbannerController', ['$interval', 'ScbannerUtil', function ($in
     intervalId = startCycle();
     layer.draw();
   };
-  vm.$onDestroy = function(){
+  vm.$onDestroy = function () {
     clearInterval();
   };
 
