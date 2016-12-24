@@ -35,6 +35,7 @@ app.controller('ScbannerController', ['$interval', 'ScbannerUtil', function ($in
   var xMax;
   var yMax;
   var stars = [];
+  var intervalId;
   stars.length = 100;
 
   function addStars() {
@@ -81,7 +82,7 @@ app.controller('ScbannerController', ['$interval', 'ScbannerUtil', function ($in
   }
 
   function startCycle() {
-    $interval(function () {
+    return $interval(function () {
       var index = ScbannerUtil.getRandomNumber(stars.length);
       var star = stars[index];
       var scale= Math.random();
@@ -89,26 +90,34 @@ app.controller('ScbannerController', ['$interval', 'ScbannerUtil', function ($in
       var tween = new Konva.Tween({
         node: star,
         duration: 5,
-        easing: Konva.Easings.ElasticEaseOut,
-        rotation: ScbannerUtil.getRandomNumber(360),
+        easing: Konva.Easings.EaseInOut,
+        rotation: ScbannerUtil.getRandomNumber(50, 360),
         fill: Konva.Util.getRandomColor(),
         scale: {
           x:scale,
           y:scale
-        }
+        },
+        x: ScbannerUtil.getRandomNumber(10, xMax),
+        y: ScbannerUtil.getRandomNumber(10, yMax)
       });
-
       tween.play();
-      layer.batchDraw();
-
-    }, 500);
+    }, 1000);
+  }
+  
+  function clearInterval(){
+    if(intervalId){
+      $interval.cancel(intervalId);
+    }
   }
 
   vm.$postLink = function () {
     initialise();
     addStars();
-    startCycle();
+    intervalId = startCycle();
     layer.draw();
+  };
+  vm.$onDestroy = function(){
+    clearInterval();
   };
 
 }]);

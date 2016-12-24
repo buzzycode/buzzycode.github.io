@@ -34,16 +34,16 @@
   &__banner{
     position: relative;
     &__stage{
+      width: 100%;
+      height: 500px;
+    }
+    &__content{
+      background: rgba(0, 0, 0, 0.5);
       position:absolute;
       top: 0;
       bottom: 0;
       left: 0;
       right: 0;
-    }
-    &__content{
-      background: black;
-      width: 100%;
-      height: 500px;
     }
   }
 }
