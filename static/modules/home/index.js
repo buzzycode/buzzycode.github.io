@@ -3,7 +3,8 @@
 var angular = require('angular');
 var app = angular.module('smellycode.home', [
   require('angular-ui-router'),
-  require('../components/scbanner').name
+  require('../components/scbanner').name,
+  require('../api').name
 ]);
 app.config(['$stateProvider', function($stateProvider){
   $stateProvider.state('home', {

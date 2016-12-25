@@ -1,8 +1,27 @@
 /*global module*/
 'use strict';
 
-function HomeController($scope){
-  $scope.greetings = 'Greetings from home controller.';
+function HomeController(
+  $scope,
+  $log,
+  QuoteFactory
+) {
+
+  function onLoad() {
+    QuoteFactory.get().then(function (quote) {
+      $scope.quote = quote;
+    }).catch(function (e) {
+      //TODO: Error message goes here.
+      $log.error(e);
+    });
+  }
+
+  onLoad();
 }
 
-module.exports = ['$scope', HomeController];
+module.exports = [
+  '$scope',
+  '$log',
+  'QuoteFactory',
+  HomeController
+];
