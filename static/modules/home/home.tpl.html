@@ -1,10 +1,16 @@
-<section class="home__banner">
-  <scbanner></scbanner>
-  <section class="home__banner__content">
-    <h1>{Smelly Code}</h1>
-    <p>
-      Smelly Code Smelly Code. Why are they writing you.<br>
-      Smelly Code Smelly Code. It's not your fault...
-    </p>
+<section class="home">
+  <!--Home Header-->
+  <header class="home__header">
+    <img class="home__header__logo" src="assets/logo.png" alt="Smelly Code">
+    <!--    <div class="home__header__connector"></div>-->
+  </header>
+  <!--post list Div-->
+  <section class="home__content" ng-init="a=[];a.length =19;">
+    <div ng-repeat="i in a track by $index">
+      <h1>Post A</h1>
+        <p ng-repeat="i in a track by $index">
+          This is a post. This is a post
+        </p>
+    </div>
   </section>
 </section>

@@ -67,8 +67,8 @@ gulp.task('cleanup', function(){
 
 gulp.task('watch', ['build'], function(){
   //TODO: User task bundlejs and css.
-  gulp.watch('static/**/*.js', ['build']);
-  gulp.watch('sass/**/*.scss', ['build']);
+  gulp.watch('static/**/*.js', ['bundlejs']);
+  gulp.watch('sass/**/*.scss', ['css']);
 });
 
 gulp.task('default', ['watch']);

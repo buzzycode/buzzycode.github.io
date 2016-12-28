@@ -1,9 +1,45 @@
 @import 'reset';
 @import 'base/base';
+@import 'theme';
 @import 'home';
 
 body{
   background: map-get($colors, background);
   font-family: $font-family;
   color: map-get($colors, text);
+}
+
+.main {
+  &__header {
+    box-shadow: 0 0 0.7em rgba(0,0,0,0.5);
+    background: white;
+    &__logo{
+      padding: 0.5em;
+      & a{
+        font-size: 2em;
+        text-decoration: none;
+        color: map-get($colors, text);
+        &:hover{
+          cursor: pointer;
+          color: map-get($colors, hover);
+        }
+      }
+    }
+    &__rainbow{
+        content: '';
+        display: flex;
+        width: 100%;
+        height: 5px;
+        background: salmon;
+        flex-wrap: nowrap;
+      & div{
+        flex-grow: 1;
+      }      
+      @for $i from 1 through length($rainbow-bar-colors) {
+        & :nth-child(#{$i}n){
+          background: nth($rainbow-bar-colors, $i);
+        }
+      }
+    }
+  }  
 }

@@ -1,58 +1,46 @@
 .home {
+  width: 90%;
+  margin: 0 auto;
   &__header {
-    box-shadow: 0 0 0.7em rgba(0,0,0,0.5);
-    &__logo{
-      padding: 0.5em;
-      & a{
-        font-size: 2em;
-        text-decoration: none;
-        color: map-get($colors, text);
-        &:hover{
-          cursor: pointer;
-          color: map-get($colors, hover);
-        }
-      }
+    text-align: center;
+    &__logo {
+      margin: 20px;
+      margin-top: 50px;
+      border: 5px solid white;
+      border-radius: 50%;
+      width: 128px;
     }
-    &__rainbow{
+    &__connector {
+      margin: 5px auto;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: $transparent-white;
+      &::after {
         content: '';
-        display: flex;
-        width: 100%;
-        height: 5px;
-        background: salmon;
-        flex-wrap: nowrap;
-      & div{
-        flex-grow: 1;
-      }
-      $bar-colors: #2A363B, #E84A5F, #FF847B, #FECEA8, #FF847B, #E84A5F, #2A363B;
-      @for $i from 1 through length($bar-colors) {
-        & :nth-child(#{$i}){
-          background: nth($bar-colors, $i);
-        }
+        margin: 10px auto;
+        margin-top: 40px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: $transparent-white;
+        display: block;
       }
     }
   }
-  &__banner{
-    position: relative;
-    &__stage{
-      width: 100%;
-      height: 300px;
+  &__content {
+    & h1 {
+      font-size: 2em;
     }
-    &__content{
-      background: rgba(0, 0, 0, 0.7);
-      position:absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      color: white;
-      text-align: center;
-      & h1{
-        font-size: 5em;
-        margin-top: 50px;
-      }
-      & p{
-        font-size: 1.1em;
-        margin: 50px;
+    & div {
+      border-top: 5px solid white;
+      background: white;
+      margin: 10px 0;
+      padding: 10px;
+    }
+    @for $i from 1 through length($rainbow-bar-colors) {
+      & div:nth-child(#{$i}n) {
+        border-color: nth($rainbow-bar-colors, $i);
       }
     }
   }

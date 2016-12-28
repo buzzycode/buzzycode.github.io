@@ -3,9 +3,9 @@
 var angular = require('angular');
 var Konva = require('konva');
 
-var app = angular.module('smellycode.components.scbanner', []);
+var app = angular.module('smellycode.components.aquarium', []);
 module.exports = app;
-app.service('ScbannerUtil', [function () {
+app.service('AquariumUtil', [function () {
 
   var service = this;
 
@@ -27,15 +27,15 @@ app.service('ScbannerUtil', [function () {
 
 }]);
 
-app.controller('ScbannerController', [
+app.controller('AquariumController', [
   '$interval',
-  'ScbannerUtil',
+  'AquariumUtil',
   function (
     $interval,
-    ScbannerUtil
+    AquariumUtil
   ) {
     var vm = this;
-    var containerId = 'homeBanner';
+    var containerId = 'aquarium';
     var stage;
     var layer;
     var xMax;
@@ -47,9 +47,9 @@ app.controller('ScbannerController', [
       for (var i = 0; i < stars.length; i += 1) {
         var scale = Math.random();
         var star = new Konva.Star({
-          x: ScbannerUtil.getRandomNumber(10, xMax),
-          y: ScbannerUtil.getRandomNumber(10, yMax),
-          numPoints: ScbannerUtil.getRandomNumber(i) + 5,
+          x: AquariumUtil.getRandomNumber(10, xMax),
+          y: AquariumUtil.getRandomNumber(10, yMax),
+          numPoints: AquariumUtil.getRandomNumber(i) + 5,
           innerRadius: 30,
           outerRadius: 50,
           fill: Konva.Util.getRandomColor(),
@@ -74,13 +74,13 @@ app.controller('ScbannerController', [
     }
 
     function initialise() {
-      var element = document.getElementById('homeBanner');
+      var element = document.getElementById(containerId);
       xMax = element.offsetWidth;
       yMax = element.offsetHeight;
-      // one percent stars of the max width;
-      stars.length = 0.05 * xMax << 0;
+      // 10 percent stars of the max width;
+      stars.length = 0.1 * xMax << 0;
       stage = new Konva.Stage({
-        container: 'homeBanner',
+        container: containerId,
         width: xMax,
         height: yMax
       });
@@ -90,7 +90,7 @@ app.controller('ScbannerController', [
 
     function startCycle() {
       return $interval(function () {
-        var index = ScbannerUtil.getRandomNumber(stars.length);
+        var index = AquariumUtil.getRandomNumber(stars.length);
         var star = stars[index];
         var scale = Math.random();
         star.moveToTop();
@@ -98,14 +98,14 @@ app.controller('ScbannerController', [
           node: star,
           duration: 5,
           easing: Konva.Easings.EaseInOut,
-          rotation: ScbannerUtil.getRandomNumber(50, 360),
+          rotation: AquariumUtil.getRandomNumber(50, 360),
           fill: Konva.Util.getRandomColor(),
           scale: {
             x: scale,
             y: scale
           },
-          x: ScbannerUtil.getRandomNumber(10, xMax),
-          y: ScbannerUtil.getRandomNumber(10, yMax)
+          x: AquariumUtil.getRandomNumber(10, xMax),
+          y: AquariumUtil.getRandomNumber(10, yMax)
         });
         tween.play();
       }, 1000);
@@ -146,7 +146,7 @@ app.controller('ScbannerController', [
     };
 
 }]);
-app.component('scbanner', {
-  template: '<div id="homeBanner" class="home__banner__stage"></div>',
-  controller: 'ScbannerController'
+app.component('aquarium', {
+  template: '<div id="aquarium" class="theme__aquarium"></div>',
+  controller: 'AquariumController'
 });

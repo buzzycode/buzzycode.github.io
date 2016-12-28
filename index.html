@@ -25,19 +25,21 @@
 </head>
 
 <body ng-app="smellycode">
+  <!--background acquarium filled with weird species-->
+  <aquarium  class="theme"></aquarium>
   <!-- Main Header-->
-  <header class="home__header">
-    <div class="home__header__rainbow">
+  <header class="main__header">
+    <div class="main__header__rainbow" ng-init="a=[];a.length =19;">
       <!-- 7 divs for rain bar-->
-      <div ng-repeat="i in [1, 2, 3, 4, 5, 6, 7]"></div>
+      <div ng-repeat="i in a track by $index"></div>
     </div>
     <!-- navigation bar with logo-->
-    <nav class="home__header__nav">
+    <nav class="main__header__nav">
       <!-- Logo -->
-      <div class="home__header__logo">
+      <div class="main__header__logo">
         <a ui-href="home">Smelly Code</a>
       </div>
-      <div class="home__header__nav_link">
+      <div class="main__header__nav_link">
         <a href="about"></a>
       </div>
     </nav>

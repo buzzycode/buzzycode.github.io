@@ -10,6 +10,7 @@ function HomeController(
   function onLoad() {
     QuoteFactory.get().then(function (quote) {
       $scope.quote = quote;
+      console.log(quote);
     }).catch(function (e) {
       //TODO: Error message goes here.
       $log.error(e);
