@@ -4,25 +4,16 @@
 function HomeController(
   $scope,
   $log,
-  QuoteFactory
+  QuoteFactory,
+  PostStore
 ) {
-
-  function onLoad() {
-    QuoteFactory.get().then(function (quote) {
-      $scope.quote = quote;
-      console.log(quote);
-    }).catch(function (e) {
-      //TODO: Error message goes here.
-      $log.error(e);
-    });
-  }
-
-  onLoad();
+    $scope.posts = PostStore.posts;
 }
 
 module.exports = [
   '$scope',
   '$log',
   'QuoteFactory',
+  'PostStore',
   HomeController
 ];

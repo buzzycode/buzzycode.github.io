@@ -10,7 +10,7 @@ app.config(['$stateProvider', function($stateProvider){
     url: '/home',
     templateUrl: 'static/modules/home/home.tpl.html',
     controller: 'HomeController'
-  });
+  });  
 }]);
 app.controller('HomeController', require('./controller'));
 module.exports = app;

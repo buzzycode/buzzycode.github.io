@@ -1,11 +1,9 @@
 .home {
-  width: 90%;
-  margin: 0 auto;
+  @extend .container;
   &__header {
     text-align: center;
     &__logo {
       margin: 20px;
-      margin-top: 50px;
       border: 5px solid white;
       border-radius: 50%;
       width: 128px;
@@ -30,14 +28,24 @@
     }
   }
   &__content {
-    & h1 {
-      font-size: 2em;
-    }
-    & div {
+    &__post {
       border-top: 5px solid white;
       background: white;
-      margin: 10px 0;
-      padding: 10px;
+      margin: 50px 0;
+      padding: 20px;
+      &-title {
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        & h1 {
+          &:hover {
+            @include linkHover();
+          }
+        }
+      }
+      &-body {}
+      &:first-child {
+        margin-top: 10px;
+      }
     }
     @for $i from 1 through length($rainbow-bar-colors) {
       & div:nth-child(#{$i}n) {
