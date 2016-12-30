@@ -1,10 +1,10 @@
 /*global exports, require*/
 'use strict';
-var angular = require('angular');
 var app = angular.module('smellycode', [
   require('angular-ui-router'),
   require('./modules/home').name,
-  require('./modules/components/aquarium').name
+  require('./modules/components/aquarium').name,
+  'hljs'
 ]);
 
 app.constant('Routes', [
@@ -16,13 +16,11 @@ app.constant('Routes', [
 
 app.config(['Routes', '$stateProvider', '$urlRouterProvider', function (Routes, $stateProvider, $urlRouterProvider) {
   var base = 'static/views/';
-  console.log('Hi', Routes);
   Routes.forEach(function (route) {
     var state = {
       url: '/' + route.url,
       templateUrl: base + route.url
     };
-    console.log(state, route.id);
     $stateProvider.state(route.id, state);
   });
   $urlRouterProvider.otherwise('/home');

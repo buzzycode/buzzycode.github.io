@@ -1,5 +1,23 @@
-.post_read{
+.post_read {
   @extend .container;
+  width: 70%;
+  line-height: 30px;
   background: white;
   color: map-get($colors, text);
+  padding: 20px;
+  text-align: justify;
+  & p {
+    text-indent: 5%;
+  }
+  &__title {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  & ul {
+    margin: 0 5%;
+    list-style: disc;
+    & p {
+      text-indent: 0%;
+    }
+  }
 }

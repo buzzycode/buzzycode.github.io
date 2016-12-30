@@ -1,6 +1,5 @@
 /*global module, require, document, Image*/
 'use strict';
-var angular = require('angular');
 var Konva = require('konva');
 
 var app = angular.module('smellycode.components.aquarium', []);

@@ -1,6 +1,5 @@
 /*global require, module*/
 'use strict';
-var angular = require('angular');
 // TODO: Include ngResource and use it instead of $http calls.
 var app = angular.module('smellycode.api', []);
 

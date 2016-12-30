@@ -1,6 +1,5 @@
 /*global require, exports*/
 'use strict';
-var angular = require('angular');
 var app = angular.module('smellycode.home', [
   require('angular-ui-router'),
   require('../api').name

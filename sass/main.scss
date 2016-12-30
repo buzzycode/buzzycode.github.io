@@ -3,13 +3,15 @@
 @import 'theme';
 @import 'home';
 @import 'post_read';
-
-
 body {
   background: map-get($colors, background);
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
   color: map-get($colors, text);
+}
+
+body::selection{
+  color: red;
 }
 
 h1 {
@@ -23,12 +25,38 @@ h2 {
 h3 {
   @include heading(1.5em);
 }
+h4{
+  @include heading(1.3em);
+}
+h5{
+  @include heading(1.2em);
+}
+h6{
+  @include heading(1em);
+}
+
 
 a {
   text-decoration: none;
+  color: steelblue;
 }
-a:hover{
+
+a:hover {
   @include linkHover();
+}
+
+code {
+  background: #f5f5f5;
+  padding: 0 5px;
+  border-radius: 4px;
+  margin: 0px;
+}
+
+em, i{
+  font-style: italic;
+}
+strong, b{
+  font-weight: $font-bold;
 }
 
 .main {
