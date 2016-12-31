@@ -47,7 +47,101 @@ console.log(source.a, sourceCopy.a); //"a", "Changed a"</pre>
       </ul>
     </li>
     <li>
-      <code>angular.extend()</code> as name suggests it extends the object.
+      <p>
+        <code>angular.extend()</code> as name suggests it extends the <span class="code__vanila">destination</span> object by copying enumerable properties of <span class="code__vanila">source</span> object. Let's see it in action.
+      </p>
+      <div class="code__block">
+        <pre hljs hljs-language="javascript">
+var source = {
+  a: 'a'
+};
+var destination = {  
+  b: 'b'
+}
+angular.extend(destination, source);
+console.log(destination); //{a: 'a', b: 'b'}
+var obj = {
+  c: 'c'
+};
+//if you don't want to mess with original destination obj.
+var r = angular({}, obj, source);
+console.log(r); //{a: 'a', c:'c'}</pre>
+      </div>
+      <p>
+        <code>angular.extends()</code> does shallow copy which means if changes are made in non-primitive property of source object than they wil be visible in destination object or vice versa.
+      </p>
+      <div class="code__block">
+        <pre hljs hljs-language="javascript">
+var source = {
+  a: {
+    c: 'Some value of c'
+  }
+};
+var destination = {
+  b: 'this is b'
+};
+angular.extend(destination, source);
+console.log(destination); // {a: {c: 'Some value of c'}, b: 'this is b'}
+source.a.c = 'modified c';
+console.log(destination.a.c); // "modified c"</pre>
+      </div>
+      <p>
+        <strong>Note:</strong> <code>angular.extend()</code> does not support rescursive merge(deep copy). That's where angular.merge() comes into picture. See the code below.
+      </p>
+      <div class="code__block">
+        <pre hljs hljs-language="javascript">
+var objA = {
+	a: {
+      b: 'b'
+    }	
+};
+var objB = {
+	a: {
+      c: 'c'
+    }
+};
+var r = angular.extend({},objA, objB);
+// It will log { a: { c : "c" } } instead of // { a: { b: "b", c : "c" }}
+console.log(r);</pre>
+      </div>
+    </li>
+    <li>
+      <p>
+        <code>angular.merge()</code> deeply extends <span class="code__vanila">destination</span> object by copying enumerable properties from the <span class="code__vanila">source</span> to <span class="code__vanila">destination</span>. Unlike <span class="code__vanila">extend()</span>, <span class="code__vanila">merge()</span> recursively descends into object properties of source and perform copy.
+      </p>
+      <div class="code__block">
+        <pre hljs hljs-language="javascript">
+var objA = {
+	a: {
+      b: 'b'
+    }	
+};
+var objB = {
+	a: {
+      c: 'c'
+    }
+};
+var r = angular.merge({},objA, objB);
+console.log(r); // { a: { b: "b", c : "c" }}</pre>
+      </div>
     </li>
   </ul>
+  <p>That's all folks!! Here are the references: <a href="https://docs.angularjs.org/api/ng/function/angular.extend">angular.extend()</a>, <a href="https://docs.angularjs.org/api/ng/function/angular.copy">angular.copy()</a> & <a href="https://docs.angularjs.org/api/ng/function/angular.merge">angular.merge()</a>.
+  </p>
+  <p style="margin-top: 20px;"><strong>P.S:</strong> It's my first blog post. I have never written any technical post before so if there's any mistake I have made then please forgive me and leave your comments in comment section. I am open to suggestions and corrections. Thanks.</p>
+  <div id="disqus_thread"></div>
+  <!--Discuss-->
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://smellycode.github.io/index.html#/angular-extend-copy-merge.html";
+    };
+    (function () { // DON'T EDIT BELOW THIS LINE
+      var d = document,
+        s = d.createElement('script');
+      s.src = '//smelly-code.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
