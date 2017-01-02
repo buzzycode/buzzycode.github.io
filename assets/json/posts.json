@@ -1,5 +1,12 @@
 [
   {
+    "id": "2",
+    "title": "\"display\" of floated elements",
+    "description": "Today when I was playing with <code>float</code>, I found that I was able to apply <code>margin</code>, <code>padding</code>, <code>width</code> &amp; <code>height</code> to <em>floated element</em> even though the element was an <code>inline</code> element which made me curious to peep under the hood...",
+    "url": "display-of-floated-element",
+    "date": "1483343144098"
+  },
+  {
     "id": "1",
     "title": "Angular => extend, copy & merge",
     "description": "Superheroic AngularJs comes with a set of utility functions which are not specific to angular and can be leveraged anywhere...",

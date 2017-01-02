@@ -7,12 +7,7 @@ var app = angular.module('smellycode', [
   'hljs'
 ]);
 
-app.constant('Routes', [
-  {
-    id: '1',
-    url: 'angular-extend-copy-merge.html'
-  }
-]);
+app.constant('Routes', require('./routes'));
 
 app.config(['Routes', '$stateProvider', '$urlRouterProvider', function (Routes, $stateProvider, $urlRouterProvider) {
   var base = 'static/views/';
