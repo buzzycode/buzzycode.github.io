@@ -37,7 +37,6 @@ app.service('PostStore', ['$http', '$q', function ($http, $q) {
         Array.prototype.push.apply(service.posts, _posts.slice(0, PAGE_SIZE));
         service.next = _posts.length < PAGE_SIZE ? null : PAGE_SIZE;
         deferred.resolve(service.posts);
-        console.log(service.posts);
       })
       .catch(function (error) {
         deferred.reject(error);

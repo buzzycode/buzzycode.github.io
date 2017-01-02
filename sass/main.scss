@@ -10,7 +10,7 @@ body {
   color: map-get($colors, text);
 }
 
-body::selection{
+body::selection {
   color: red;
 }
 
@@ -25,16 +25,18 @@ h2 {
 h3 {
   @include heading(1.5em);
 }
-h4{
+
+h4 {
   @include heading(1.3em);
 }
-h5{
+
+h5 {
   @include heading(1.2em);
 }
-h6{
+
+h6 {
   @include heading(1em);
 }
-
 
 a {
   text-decoration: none;
@@ -52,10 +54,13 @@ code {
   margin: 0px;
 }
 
-em, i{
+em,
+i {
   font-style: italic;
 }
-strong, b{
+
+strong,
+b {
   font-weight: $font-bold;
 }
 
@@ -63,12 +68,49 @@ strong, b{
   &__header {
     box-shadow: 0 0 0.7em rgba(0, 0, 0, 0.5);
     background: white;
-    &__logo {
-      padding: 0.5em;
-      & a {
-        font-family: 'Bree Serif', serif;
-        & h1:hover {
-          @include linkHover();
+    &__nav {
+      display: flex;
+      flex-wrap: nowrap;
+      &__logo {
+        padding: 0.5em;
+        & a {
+          font-family: 'Bree Serif', serif;
+          & h1:hover {
+            @include linkHover();
+          }
+        }
+      }
+      &__gap {
+        flex-grow: 1;
+      }
+      &__menu {
+        display: none;
+        position: relative;
+        padding: 8px 16px;
+        color: teal;
+        & span {
+          font-size: 32px;
+          & :hover {
+            @include linkHover();
+          }
+        }
+        &__options {
+          position: absolute;
+          top: 49px;
+          right: 0px;
+          & div {
+            padding: 8px 12px;
+            color: white;
+          }
+          &-about {
+            background: nth($rainbow-bar-colors, 9);            
+          }
+          &-photos {            
+            background: nth($rainbow-bar-colors, 6);            
+          }
+          &-others {
+            background: nth($rainbow-bar-colors, 3);
+          }
         }
       }
     }

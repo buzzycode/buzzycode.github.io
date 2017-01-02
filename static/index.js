@@ -25,19 +25,4 @@ app.config(['Routes', '$stateProvider', '$urlRouterProvider', function (Routes, 
   });
   $urlRouterProvider.otherwise('/home');
 }]);
-
-app.controller('MainController', ['PageMeta', function (PageMeta) {
-  var ctrl = this;
-  var title = 'Smelly Code | Code which smells';
-  ctrl.PageMeta = PageMeta;
-  ctrl.PageMeta.setTitle(title);
-}]);
-app.service('PageMeta', [function () {
-  var meta = this;
-  meta.title = '';
-  this.setTitle = function (title) {
-    meta.title = title || meta.title;
-    return meta;
-  };
-}]);
 module.exports = app;

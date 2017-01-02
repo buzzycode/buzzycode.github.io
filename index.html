@@ -10,17 +10,18 @@
 |___/|_|_|_| \___||_| |_| \_, |   \___|\___/\__,_|\___|  
                           |__/                           
 -->
-<html lang="en-Us" dir="ltr" ng-app="smellycode" ng-controller="MainController as mainCtrl" ng-strict-di>
+<html lang="en-Us" dir="ltr" ng-app="smellycode" ng-strict-di>
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> {{ mainCtrl.PageMeta.title }} </title>
+  <title>Smelly Code | Code which smells </title>
   <meta name="description" description="Smelly Code is a blog created by Hitesh to share his learnings.">
   <meta name="author" description="Hitesh Kumar">
   <link rel="stylesheet" href="fonts/bree-serif.css">
   <link rel="stylesheet" href="fonts/open-sans.css">
   <link rel="stylesheet" href="libs/monokai-sublime.css">
+  <link rel="stylesheet" href="libs/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="dist/main.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -38,13 +39,29 @@
     <!-- navigation bar with logo-->
     <nav class="main__header__nav">
       <!-- Logo -->
-      <div class="main__header__logo">
+      <div class="main__header__nav__logo">
         <a ui-sref="home">
           <h1>Smelly Code</h1>
         </a>
       </div>
-      <div class="main__header__nav_link">
-        <a href="about"></a>
+      <!--Gap to separate logo from menu-->
+      <div class="main__header__nav__gap"></div>
+      <!--Menu-->
+      <div class="main__header__nav__menu">
+        <!--Menu button-->
+        <span id="menu"><i class="fa fa-bars" aria-hidden="true"></i></span>
+        <!--Options-->
+        <div class="main__header__nav__menu__options">
+          <div class="main__header__nav__menu__options-about">
+            <span><i class="fa fa-user-o" aria-hidden="true"></i></span>
+          </div>
+          <div class="main__header__nav__menu__options-photos">
+            <span><i class="fa fa-image" aria-hidden="true"></i></span>
+          </div>
+          <div class="main__header__nav__menu__options-others">
+            <span><i class="fa fa-snowflake-o" aria-hidden="true"></i></span>
+          </div>
+        </div>
       </div>
     </nav>
   </header>

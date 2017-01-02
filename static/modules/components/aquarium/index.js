@@ -27,10 +27,12 @@ app.service('AquariumUtil', [function () {
 }]);
 
 app.controller('AquariumController', [
-  '$interval',
+  '$$rAF',
+  '$timeout',
   'AquariumUtil',
   function (
-    $interval,
+    $$rAF,
+    $timeout,
     AquariumUtil
   ) {
     var vm = this;
@@ -40,7 +42,7 @@ app.controller('AquariumController', [
     var xMax;
     var yMax;
     var stars = [];
-    var intervalId;
+    var timeoutId;
 
     function addStars() {
       for (var i = 0; i < stars.length; i += 1) {
@@ -87,8 +89,8 @@ app.controller('AquariumController', [
       stage.add(layer);
     }
 
-    function startCycle() {
-      return $interval(function () {
+    function frame() {
+      timeoutId = $timeout(function () {
         var index = AquariumUtil.getRandomNumber(stars.length);
         var star = stars[index];
         var scale = Math.random();
@@ -107,18 +109,23 @@ app.controller('AquariumController', [
           y: AquariumUtil.getRandomNumber(10, yMax)
         });
         tween.play();
+        $$rAF(frame);
       }, 1000);
     }
 
-    function clearInterval() {
-      if (intervalId) {
-        $interval.cancel(intervalId);
+    function startCycle() {
+      $$rAF(frame);
+    }
+
+    function cancelTimeout() {
+      if (timeoutId) {
+        $timeout.cancel(timeoutId);
       }
     }
-    
-    function addBackground(){
+
+    function addBackground() {
       var image = new Image();
-      image.onload = function(){
+      image.onload = function () {
         var kImage = new Konva.Image({
           image: image,
           x: 0,
@@ -137,11 +144,11 @@ app.controller('AquariumController', [
       initialise();
       addBackground();
       addStars();
-      intervalId = startCycle();
+      startCycle();
       layer.draw();
     };
     vm.$onDestroy = function () {
-      clearInterval();
+      cancelTimeout();
     };
 
 }]);

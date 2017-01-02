@@ -1,31 +1,36 @@
-<div class="post_read">
-  <h1 class="post_read__title">Angular => extend, copy & merge</h1>
-  <p>
-    Superheroic <a href="http://angularjs.org/" target="_blank">AngularJs</a> comes with a set of utility functions which are not specific to angular and can be leveraged anywhere. In this post, we will discuss <code>angular.copy()</code>, <code>angular.extend()</code> & <code>angular.merge()</code>. Before delving into these, we need to walk through two important concepts <em>Deep Copy</em> and <em>Shallow Copy</em> cause these functions linger around these concepts.
-  </p>
-  <p>
-    <b>Shallow Copy</b> is a field by field copy of an object. All the fields of an object are copied to another object. If a field value is a reference to an object (e.g., a memory address) it copies the reference and if field value is a primitive type it copies the value of the primitive type. Since we copy the reference only so <em>if one object is modified then changes will be visible in other object also</em>.
-  </p>
-  <p>
-    <b>Deep Copy</b> duplicates everything. In lieu of copying the references, it creates a new copy of object and then copy the refrence of new object to destination object. Since we create a brand new object and refer it. Thus <em>the changes made in one objects are not visible to another object</em>. A detailed discussion on deep copy and shallow copy <a href="https://en.wikipedia.org/wiki/Object_copying" target="_blank">can be</a> <a href="http://stackoverflow.com/questions/184710/what-is-the-difference-between-a-deep-copy-and-a-shallow-copy" target="_blank">found here</a>.
-  </p>
-  <p>
-    Well now it's high time for our celebrated functions. Let's look into them one by one.
-    <br>
-  </p>
-  <ul>
-    <li>
-      <p>
-        <code>angular.copy()</code> does deep copy of an object. In other words, it creates the new <span class="code__vanila">destination</span> object(if not supplied) by duplicating the values from supplied <span class="code__vanila">source</span> object.
-      </p>
-      <div class="code__block">
-        <pre hljs>angular.copy(source,  [destination]);</pre>
-      </div>
-      <p>
-        As you can see the second parameter is optional. So when it is not passed a new object is created otherwise properties will be copied to destination object.
-      </p>
-      <div class="code__block">
-        <pre hljs hljs-language="javascript">
+<article class="post_read">
+  <!--Post Header-->
+  <header>
+    <h1 class="post_read__title">Angular => extend, copy & merge</h1>
+  </header>
+  <!--Post Content-->
+  <section>
+    <p>
+      Superheroic <a href="http://angularjs.org/" target="_blank">AngularJs</a> comes with a set of utility functions which are not specific to angular and can be leveraged anywhere. In this post, we will discuss <code>angular.copy()</code>, <code>angular.extend()</code> & <code>angular.merge()</code>. Before delving into these, we need to walk through two important concepts <em>Deep Copy</em> and <em>Shallow Copy</em> cause these functions linger around these concepts.
+    </p>
+    <p>
+      <b>Shallow Copy</b> is a field by field copy of an object. All the fields of an object are copied to another object. If a field value is a reference to an object (e.g., a memory address) it copies the reference and if field value is a primitive type it copies the value of the primitive type. Since we copy the reference only so <em>if one object is modified then changes will be visible in other object also</em>.
+    </p>
+    <p>
+      <b>Deep Copy</b> duplicates everything. In lieu of copying the references, it creates a new copy of object and then copy the refrence of new object to destination object. Since we create a brand new object and refer it. Thus <em>the changes made in one objects are not visible to another object</em>. A detailed discussion on deep copy and shallow copy <a href="https://en.wikipedia.org/wiki/Object_copying" target="_blank">can be</a> <a href="http://stackoverflow.com/questions/184710/what-is-the-difference-between-a-deep-copy-and-a-shallow-copy" target="_blank">found here</a>.
+    </p>
+    <p>
+      Well now it's high time for our celebrated functions. Let's look into them one by one.
+      <br>
+    </p>
+    <ul>
+      <li>
+        <p>
+          <code>angular.copy()</code> does deep copy of an object. In other words, it creates the new <span class="code__vanila">destination</span> object(if not supplied) by duplicating the values from supplied <span class="code__vanila">source</span> object.
+        </p>
+        <div class="code__block">
+          <pre hljs>angular.copy(source,  [destination]);</pre>
+        </div>
+        <p>
+          As you can see the second parameter is optional. So when it is not passed a new object is created otherwise properties will be copied to destination object.
+        </p>
+        <div class="code__block">
+          <pre hljs hljs-language="javascript">
 var source = {
     a: 'a',
     b: 'b'
@@ -37,21 +42,21 @@ var destination = {
 var sourceCopy = angular.copy(source);
 sourceCopy.a = 'Changed a';
 console.log(source.a, sourceCopy.a); //"a", "Changed a"</pre>
-      </div>
-      <p>Here's are some cases from the official api doc for <a href="https://docs.angularjs.org/api/ng/function/angular.copy" target="_blank"><code>angular.copy()</code></a> which extensively talks about it.</p>
-      <ul>
-        <li>If no destination is supplied, a copy of the object or array is created.</li>
-        <li>If a destination is provided, all of its elements (for arrays) or properties (for objects) are deleted and then all elements/properties from the source are copied to it.</li>
-        <li>If <span class="code__vanila">source</span> is not an object or array (inc. <span class="code__vanila">null</span> and <span class="code__vanila">undefined</span>), <span class="code__vanila">source</span> is returned.</li>
-        <li>If <span class="code__vanila">source</span> is identical to <span class="code__vanila">destination</span> an exception will be thrown.</li>
-      </ul>
-    </li>
-    <li>
-      <p>
-        <code>angular.extend()</code> as name suggests it extends the <span class="code__vanila">destination</span> object by copying enumerable properties of <span class="code__vanila">source</span> object. Let's see it in action.
-      </p>
-      <div class="code__block">
-        <pre hljs hljs-language="javascript">
+        </div>
+        <p>Here's are some cases from the official api doc for <a href="https://docs.angularjs.org/api/ng/function/angular.copy" target="_blank"><code>angular.copy()</code></a> which extensively talks about it.</p>
+        <ul>
+          <li>If no destination is supplied, a copy of the object or array is created.</li>
+          <li>If a destination is provided, all of its elements (for arrays) or properties (for objects) are deleted and then all elements/properties from the source are copied to it.</li>
+          <li>If <span class="code__vanila">source</span> is not an object or array (inc. <span class="code__vanila">null</span> and <span class="code__vanila">undefined</span>), <span class="code__vanila">source</span> is returned.</li>
+          <li>If <span class="code__vanila">source</span> is identical to <span class="code__vanila">destination</span> an exception will be thrown.</li>
+        </ul>
+      </li>
+      <li>
+        <p>
+          <code>angular.extend()</code> as name suggests it extends the <span class="code__vanila">destination</span> object by copying enumerable properties of <span class="code__vanila">source</span> object. Let's see it in action.
+        </p>
+        <div class="code__block">
+          <pre hljs hljs-language="javascript">
 var source = {
   a: 'a'
 };
@@ -66,12 +71,12 @@ var obj = {
 //if you don't want to mess with original destination obj.
 var r = angular({}, obj, source);
 console.log(r); //{a: 'a', c:'c'}</pre>
-      </div>
-      <p>
-        <code>angular.extends()</code> does shallow copy which means if changes are made in non-primitive property of source object than they wil be visible in destination object or vice versa.
-      </p>
-      <div class="code__block">
-        <pre hljs hljs-language="javascript">
+        </div>
+        <p>
+          <code>angular.extends()</code> does shallow copy which means if changes are made in non-primitive property of source object than they wil be visible in destination object or vice versa.
+        </p>
+        <div class="code__block">
+          <pre hljs hljs-language="javascript">
 var source = {
   a: {
     c: 'Some value of c'
@@ -84,12 +89,12 @@ angular.extend(destination, source);
 console.log(destination); // {a: {c: 'Some value of c'}, b: 'this is b'}
 source.a.c = 'modified c';
 console.log(destination.a.c); // "modified c"</pre>
-      </div>
-      <p>
-        <strong>Note:</strong> <code>angular.extend()</code> does not support rescursive merge(deep copy). That's where angular.merge() comes into picture. See the code below.
-      </p>
-      <div class="code__block">
-        <pre hljs hljs-language="javascript">
+        </div>
+        <p>
+          <strong>Note:</strong> <code>angular.extend()</code> does not support rescursive merge(deep copy). That's where angular.merge() comes into picture. See the code below.
+        </p>
+        <div class="code__block">
+          <pre hljs hljs-language="javascript">
 var objA = {
 	a: {
       b: 'b'
@@ -103,14 +108,14 @@ var objB = {
 var r = angular.extend({},objA, objB);
 // It will log { a: { c : "c" } } instead of // { a: { b: "b", c : "c" }}
 console.log(r);</pre>
-      </div>
-    </li>
-    <li>
-      <p>
-        <code>angular.merge()</code> deeply extends <span class="code__vanila">destination</span> object by copying enumerable properties from the <span class="code__vanila">source</span> to <span class="code__vanila">destination</span>. Unlike <span class="code__vanila">extend()</span>, <span class="code__vanila">merge()</span> recursively descends into object properties of source and perform copy.
-      </p>
-      <div class="code__block">
-        <pre hljs hljs-language="javascript">
+        </div>
+      </li>
+      <li>
+        <p>
+          <code>angular.merge()</code> deeply extends <span class="code__vanila">destination</span> object by copying enumerable properties from the <span class="code__vanila">source</span> to <span class="code__vanila">destination</span>. Unlike <span class="code__vanila">extend()</span>, <span class="code__vanila">merge()</span> recursively descends into object properties of source and perform copy.
+        </p>
+        <div class="code__block">
+          <pre hljs hljs-language="javascript">
 var objA = {
 	a: {
       b: 'b'
@@ -123,25 +128,32 @@ var objB = {
 };
 var r = angular.merge({},objA, objB);
 console.log(r); // { a: { b: "b", c : "c" }}</pre>
-      </div>
-    </li>
-  </ul>
-  <p>That's all folks!! Here are the references: <a href="https://docs.angularjs.org/api/ng/function/angular.extend">angular.extend()</a>, <a href="https://docs.angularjs.org/api/ng/function/angular.copy">angular.copy()</a> & <a href="https://docs.angularjs.org/api/ng/function/angular.merge">angular.merge()</a>.
-  </p>
-  <p style="margin: 20px 0;"><strong>P.S:</strong> It's my first blog post. I have never written any technical post before so if there's any mistake I have made then please forgive me and leave your comments in comment section. I am open to suggestions and corrections. Thanks.</p>
-  <div id="disqus_thread"></div>
-  <!--Discuss-->
-  <script>
-    var disqus_config = function () {
-      this.page.url = "https://smellycode.github.io/#/angular-extend-copy-merge.html";
-    };
-    (function () { // DON'T EDIT BELOW THIS LINE
-      var d = document,
-        s = d.createElement('script');
-      s.src = '//smelly-code.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
+        </div>
+      </li>
+    </ul>
+    <p>
+      That's all folks!! Here are the references: <a href="https://docs.angularjs.org/api/ng/function/angular.extend">angular.extend()</a>, <a href="https://docs.angularjs.org/api/ng/function/angular.copy">angular.copy()</a> & <a href="https://docs.angularjs.org/api/ng/function/angular.merge">angular.merge()</a>.
+    </p>
+    <p style="margin: 20px 0;">
+      <strong>P.S:</strong> It's my first blog post. I have never written any technical post before so if there's any mistake I have made then please forgive me and leave your comments in comment section. I am open to suggestions and corrections. Thanks.
+    </p>
+  </section>
+  <!-- Post Footer-->
+  <footer>
+    <div id="disqus_thread"></div>
+    <!--Discuss-->
+    <script>
+      var disqus_config = function () {
+        this.page.url = "https://smellycode.github.io/#/angular-extend-copy-merge.html";
+      };
+      (function () { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+          s = d.createElement('script');
+        s.src = '//smelly-code.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </footer>
+</article>
