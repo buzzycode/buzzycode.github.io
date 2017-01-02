@@ -2,6 +2,7 @@
 'use strict';
 var app = angular.module('smellycode.home', [
   require('angular-ui-router'),
+  require('angular-sanitize'),
   require('../api').name
 ]);
 app.config(['$stateProvider', function($stateProvider){
