@@ -1,0 +1,90 @@
+.home {
+  &__header {
+    border-bottom: 1px solid #ddd;
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    &__title {
+      text-align: center;
+    }
+    &__subheading {
+      width: 70%;
+      margin-right: auto;
+      margin-bottom: 0px;
+      margin-left: auto;
+      font-family: Merriweather, serif;
+      color: #969696;
+      font-size: 16px;
+      text-align: center;
+    }
+    &__social-links {
+      width: 70%;
+      margin: 20px auto;
+      text-align: center;
+      font-size: 28px;
+      & a {
+        margin: 5px;
+        color: gray;
+      }
+    }
+  }
+  &__post-list {
+    max-width: 940px;
+    margin: 0 auto;
+    background-color: #fff;
+    &__post-wrapper {
+      margin-left: 7%;
+      margin-right: 7%;
+    }
+    &__post-card {
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #ddd;
+    }
+    &__post-link {
+      text-decoration: none;
+      color: #333;
+      transition: opacity 200ms ease;
+      & :hover {
+        opacity: 0.61;
+      }
+    }
+    &__post-title {
+      margin-top: 0px;
+      margin-bottom: 10px;
+      font-size: 30px;
+      line-height: 37px;
+    }
+    &__post-summary{
+      margin-bottom: 14px;
+      line-height: 144%;
+    }
+    &__post-nav{
+      text-decoration: none;
+      font-size: 12px;
+      border: 1px solid #d3d3d3;
+      padding: 9px 12px;
+      border-radius: 20px;
+    }
+    &__post-info {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      font-size: 10px;
+      text-transform: uppercase;
+      margin-right: 8px;
+      color: #969696;
+      font-size: 12px;
+      line-height: 125%;
+      letter-spacing: 1px;
+      &__date {}
+      &__tag {
+        background: #f0f0f0;
+        font-weight: 400;
+        margin: 5px;
+        border-radius: 3px;
+        padding: 0 5px;
+        color: gray;
+      }
+    }
+  }
+}
