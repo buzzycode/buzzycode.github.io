@@ -1,12 +1,6 @@
 .home {
   &__header {
-    border-bottom: 1px solid #ddd;
-    max-width: 940px;
-    margin-left: auto;
-    margin-right: auto;
-    &__title {
-      text-align: center;
-    }
+    @extend .base-header;
     &__subheading {
       width: 70%;
       margin-right: auto;
@@ -15,12 +9,10 @@
       font-family: Merriweather, serif;
       color: #969696;
       font-size: 16px;
-      text-align: center;
     }
     &__social-links {
       width: 70%;
       margin: 20px auto;
-      text-align: center;
       font-size: 28px;
       & a {
         margin: 5px;
