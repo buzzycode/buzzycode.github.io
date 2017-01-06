@@ -1,0 +1,20 @@
+@import 'colors';
+@import 'button';
+@import 'font';
+.base-header {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.code{
+  &__vanila{
+    padding: 0 5px;
+    background-color: #f9f2f4;
+    border-radius: 4px;
+  }
+  &__block{
+    margin: 20px 0;
+  }
+}

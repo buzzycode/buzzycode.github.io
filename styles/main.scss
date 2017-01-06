@@ -1,0 +1,125 @@
+@import 'reset';
+@import 'base/base';
+@import 'home';
+@import 'post_view';
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #f0f0f0;
+  font-family: 'Open Sans', sans-serif;
+  color: #333;
+  font-size: 16px;
+  line-height: 135%;
+}
+
+a {
+  color: steelblue;
+  transition: background-color 200ms ease;
+}
+
+a:hover {
+  color: gray;
+}
+
+.main {
+  &__header {
+    padding: 10px;
+  }
+  &__container {}
+  &__footer {
+    padding: 29px 10px;
+    border-top: 1px solid #ddd;
+    background-color: #f0f0f0;
+    &__nav {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 940px;
+      margin: 0 auto;
+      & a {
+        margin-right: 10px;
+      }
+      &__last-link {
+        flex-grow: 1;
+        text-align: right;
+      }
+    }
+  }
+}
+
+h1 {
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 35px;
+  line-height: 40px;
+  font-weight: 700;
+}
+
+p, ul {
+  font-family: Merriweather, serif;
+  line-height: 160%;
+  font-weight: 300;
+}
+
+.nav-link {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #aaa;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.nav-link:hover {
+  color: #2d3e4f;
+}
+
+.linkedin,
+.twitter,
+.github,
+.stackoverflow {
+  transition: color 0.5s ease;
+}
+
+.linkedin:hover {
+  color: $linkedin;
+}
+
+.twitter:hover {
+  color: $twitter;
+}
+
+.github:hover {
+  color: $github;
+}
+
+.stackoverflow:hover {
+  color: $stackoverflow;
+}
+
+.content-wrapper {
+  padding: 80px 0;
+  background: white;
+  border-top: 1px solid #ddd;
+}
+
+code {
+  background: #f5f5f5;
+  padding: 0 5px;
+  border-radius: 4px;
+  margin: 0px;
+  font-family: monaco;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+strong,
+b {
+  font-weight: $font-bold;
+}

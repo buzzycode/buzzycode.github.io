@@ -17,7 +17,7 @@ var minifyCSS = require('gulp-cssnano');
 
 
 gulp.task('css', function() {
-    return gulp.src('sass/**/*.scss')
+    return gulp.src('styles/**/*.scss')
         .pipe(sourcemaps.init())
             .pipe(sass().on('error', sass.logError))
             .pipe(autoprefixer())
@@ -68,7 +68,7 @@ gulp.task('cleanup', function(){
 gulp.task('watch', ['build'], function(){
   //TODO: User task bundlejs and css.
   gulp.watch('static/**/*.js', ['bundlejs']);
-  gulp.watch('sass/**/*.scss', ['css']);
+  gulp.watch('styles/**/*.scss', ['css']);
 });
 
 gulp.task('default', ['watch']);

@@ -1,0 +1,46 @@
+.post-view {
+  &__header {
+    @extend .base-header;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    &__post-info {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      font-size: 12px;
+      & a {
+        text-transform: uppercase;
+        color: #969696;
+        text-decoration: none;
+        &:hover {
+          color: #333;
+        }
+      }
+    }
+    &__post-title {
+      margin-right: 7%;
+      margin-bottom: 19px;
+      margin-left: 7%;
+    }
+  }
+  &__content {
+    max-width: 940px;
+    margin: 0 auto;
+    text-align: justify;
+    padding: 0 5%;
+    & a {
+      text-decoration: none;
+    }
+    & p {
+      margin: 20px 0;
+    }
+    &__title {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    & ul {
+      margin: 0 5%;
+      list-style: disc;
+    }
+  }
+}

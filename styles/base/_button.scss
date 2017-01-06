@@ -1,0 +1,15 @@
+.btn{
+  background: transparent;
+  font-size: 16px;
+  border: 1px solid $btn-default;
+  border-radius: 5px;
+  padding: 9px 11px;
+  color: #333;
+  text-decoration: none;
+}
+.btn-primary{
+  border-color: $btn-primary;
+}
+.btn-round{
+  border-radius: 20px;
+}
